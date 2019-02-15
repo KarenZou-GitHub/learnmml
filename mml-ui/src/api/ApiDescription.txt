@@ -1,0 +1,264 @@
+api.getMenu
+/* 获取的数据格式形如
+{
+    "etag":"oxs-pai-appMenu",
+    "lang":"zh_CN",
+    "data":[
+        {
+            "id":1,
+            "name":"ML",
+            "dex":"ml",
+            "icon":"ml-icon-logo"
+        }
+    ],
+    "success":true
+}*/
+
+api.getExperiment
+// /init.json/experiment/getExperimentDir?ID=1
+/* 结果形如
+{
+    "etag":"oxs-pai-ExperimentAll",
+    "lang":"zh_CN",
+    "data":[
+        {
+            "id":4,
+            "name":"工作",
+            "description":"工作",
+            "sequence":1,
+            "icon":null,
+            "parentId":1,
+            "enabled":true,
+            "dir":true
+        }
+    ],
+    "success":true
+}*/
+
+api.getExperimentDir
+// /init.json/experiment/getExperimentDir?ID=1
+/* {
+    "etag":"oxs-pai-ExperimentAll",
+    "lang":"zh_CN",
+    "data":[
+        {
+            "id":4,
+            "name":"工作",
+            "description":"工作",
+            "sequence":1,
+            "icon":null,
+            "parentId":1,
+            "dir":true,
+            "enabled":true
+        },
+        {
+            "id":5,
+            "name":"学习",
+            "description":"学习",
+            "sequence":2,
+            "icon":null,
+            "parentId":1,
+            "dir":true,
+            "enabled":true
+        },
+        {
+            "id":23,
+            "name":"123",
+            "description":"",
+            "sequence":0,
+            "icon":"ml-icon-shiyan",
+            "projectName":"DataSource",
+            "createdTime":1541521574000,
+            "lastUpdateTime":1541521574000,
+            "parentId":1,
+            "deleted":false,
+            "dir":false,
+            "enabled":false
+        },
+        {
+            "id":27,
+            "name":"fff1",
+            "description":"",
+            "sequence":0,
+            "icon":"ml-icon-shiyan",
+            "projectName":"WorkFlow",
+            "createdTime":1542179718000,
+            "lastUpdateTime":1542179718000,
+            "parentId":1,
+            "deleted":false,
+            "dir":false,
+            "enabled":false
+        },
+        {
+            "id":29,
+            "name":"fdsdf",
+            "description":"fsdf",
+            "sequence":0,
+            "icon":"ml-icon-shiyan",
+            "projectName":"DataSource",
+            "createdTime":1543503558000,
+            "lastUpdateTime":1543503558000,
+            "parentId":1,
+            "deleted":false,
+            "dir":false,
+            "enabled":false
+        },
+        {
+            "id":31,
+            "name":"dfgdfgsdfsdf",
+            "description":"",
+            "sequence":0,
+            "icon":"ml-icon-shiyan",
+            "projectName":"WorkFlow",
+            "createdTime":1543504084000,
+            "lastUpdateTime":1543504084000,
+            "parentId":1,
+            "deleted":false,
+            "dir":false,
+            "enabled":false
+        },
+        {
+            "id":41,
+            "name":"test",
+            "description":"test",
+            "sequence":0,
+            "icon":"ml-icon-shiyan",
+            "projectName":"WorkFlow",
+            "createdTime":1547567208000,
+            "lastUpdateTime":1547567208000,
+            "parentId":1,
+            "deleted":false,
+            "dir":false,
+            "enabled":false
+        }
+    ],
+    "success":true
+}*/
+api.getDir
+
+
+
+
+
+
+
+
+
+api.getData=(data)=>http('POST','/user.json/data/getData',data);
+api.addExperiment=(data)=>http('POST','/user.json/experiment/addExperiment',data);
+api.getUserInformation=(data)=>http('POST','/user.json/user/getUserInformation',data);
+api.addNode=(data)=>http('POST','/task.json/norun/addNode',data);
+/*
+{
+    "etag":"oxs-pai-Node",
+    "lang":"zh_CN",
+    "data":{
+        "id":74,
+        "name":"KV to Table",
+        "defName":"KV to Table",
+        "cateGory":"table",
+        "positionX":779,
+        "positionY":206,
+        "startTime":1549955474266,
+        "lastTime":1549955474266,
+        "icon":"ml-icon-dian",
+        "experimentId":5,
+        "inNumber":2,
+        "outNumber":3,
+        "inPorts":[
+            {
+                "id":117,
+                "port":{
+                    "id":1,
+                    "description":"表",
+                    "type":"biao"
+                },
+                "sequence":1
+            }
+        ],
+        "outPorts":[
+            {
+                "id":205,
+                "port":{
+                    "id":1,
+                    "description":"表",
+                    "type":"biao"
+                },
+                "sequence":1
+            }
+        ],
+        "composite":false
+    },
+    "success":true
+}*/
+api.addNodeLink=(data)=>http('POST','/task.json/norun/addNodeLink',data);
+api.getNode=(data)=>http('POST','/task.json/norun/loadNode',data);
+/*add和get是一样的回复，但是输入不一样，add要增加位置和实验信息*/
+/*{
+    "etag":"oxs-pai-Node",
+    "lang":"zh_CN",
+    "data":{
+        "id":141,
+        "name":"Split Word",
+        "defName":"Split Word",
+        "cateGory":"model",
+        "positionX":104,
+        "positionY":60,
+        "startTime":1543898739000,
+        "lastTime":1543898739000,
+        "icon":"ml-icon-biao",
+        "experimentId":24,
+        "inNumber":2,
+        "outNumber":3,
+        "inPorts":[
+            {
+                "id":164,
+                "port":{
+                    "id":1,
+                    "description":"表",
+                    "type":"biao"
+                },
+                "sequence":1
+            }
+        ],
+        "outPorts":[
+            {
+                "id":309,
+                "port":{
+                    "id":1,
+                    "description":"表",
+                    "type":"biao"
+                },
+                "sequence":1
+            },
+            {
+                "id":310,
+                "port":{
+                    "id":1,
+                    "description":"表",
+                    "type":"biao"
+                },
+                "sequence":2
+            }
+        ],
+        "composite":false
+    },
+    "success":true
+}*/
+api.getNodeState=(data)=>http('GET','/task.json/norun/getNodeState',data);
+api.getNodeTableData=(data)=>http('POST','/user.json/data/getNodeTableData',data);
+api.getNodeLineBarData=(data)=>http('POST','/user.json/data/getNodeLineBarData',data);
+api.getNodeRadarData=(data)=>http('POST','/user.json/data/getNodeRadarData',data);
+
+api.getNodeAll=(data)=>http('GET','/task.json/norun/loadNodeAll',data);
+api.getNodeLinkAll=(data)=>http('GET','/task.json/norun/loadNodeLinkAll',data);
+api.deleteNode=(data)=>http('POST','/task.json/norun/deleteNode',data);
+api.deleteNodeLink=(data)=>http('POST','/task.json/norun/deleteNodeLink',data);
+api.getComponent=(data)=>http('GET','/init.json/component/getComponent',data);
+api.getComponentDir=(data)=>http('GET','/init.json/component/getComponentDir',data);
+api.getDataSource=(data)=>http('GET','/init.json/dataSource/getDataSource',data);
+api.getDataSourceDir=(data)=>http('GET','/init.json/dataSource/getDataSourceDir',data);
+
+api.getLogging=(data)=>http('POST','/user.json/log/getLogging',data);
+
+export default api;
